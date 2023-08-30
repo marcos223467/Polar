@@ -1675,7 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a717ef4bc57023498d69bcaf5240cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cruceta: {fileID: 2800000, guid: 848928157a63ed84a9103f3d8cb60ac9, type: 3}
+  cruceta: {fileID: 2800000, guid: 5f7b94b40b355f743a4994ef6bd80bee, type: 3}
   posicion:
     serializedVersion: 2
     x: 0

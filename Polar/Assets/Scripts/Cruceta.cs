@@ -9,7 +9,7 @@ public class Cruceta : MonoBehaviour
 
     private void Start(){
         Screen.lockCursor = true;
-        posicion = new Rect((Screen.width-50)/2,(Screen.height-50)/2,50, 50 );
+        posicion = new Rect((Screen.width-150)/2,(Screen.height-150)/2,150, 150 );
     }
 
     private void OnGUI(){
