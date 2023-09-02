@@ -7,9 +7,10 @@ public class Cruceta : MonoBehaviour
     [SerializeField] private Texture2D cruceta;
     [SerializeField] private Rect posicion;
 
-    private void Start(){
+    private void Start()
+    {
         Screen.lockCursor = true;
-        posicion = new Rect((Screen.width-150)/2,(Screen.height-150)/2,150, 150 );
+        posicion = new Rect((Screen.width-100)/2,(Screen.height-100)/2,100, 100 );
     }
 
     private void OnGUI(){

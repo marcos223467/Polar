@@ -60,12 +60,16 @@ public class Player : MonoBehaviour
 
     private void Salto()
     {
-        if (isGrounded)
+        if (Input.GetButton("Jump") && isGrounded)
         {
-            _rb.AddForce(transform.up * (Input.GetAxis("Jump") * F_salto), ForceMode.Impulse);
+            _rb.AddForce(transform.up *  F_salto, ForceMode.Impulse);
             isGrounded = false;
         }
-        else if(_rb.velocity.y is >= -0.1f and <= 0.1f)
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isGrounded && collision.gameObject.layer == 3) //3 es el layer del suelo
         {
             isGrounded = true;
         }
