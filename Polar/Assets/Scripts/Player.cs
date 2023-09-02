@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     private Transform cam;
     
     private Rigidbody _rb;
+
+    [SerializeField] private Bala BalaN;
+    [SerializeField] private Bala BalaS;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Mirar();
+        Disparar();
     }
 
     private void FixedUpdate()
@@ -64,6 +68,20 @@ public class Player : MonoBehaviour
         {
             _rb.AddForce(transform.up *  F_salto, ForceMode.Impulse);
             isGrounded = false;
+        }
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void Disparar()
+    {
+        if (Input.GetButtonDown("Fire1") && !BalaN.getShot()) //Disparamos N
+        {
+            BalaN.Disparar();
+        }
+
+        if (Input.GetButtonDown("Fire2") && !BalaS.getShot())
+        {
+            BalaS.Disparar();
         }
     }
 
