@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Controlador : MonoBehaviour
@@ -15,30 +16,32 @@ public class Controlador : MonoBehaviour
         Sur = new List<GameObject>();
     }
 
-    public int AddNorte(GameObject inter)
+    private void FixedUpdate()
     {
-        Norte.Add(inter);
         Atraer();
         Repeler();
-        return Norte.IndexOf(inter);
-    }
-    
-    public int AddSur(GameObject inter)
-    {
-        Sur.Add(inter);
-        Atraer();
-        Repeler();
-        return Sur.IndexOf(inter);
     }
 
-    public void RemoveNorte(int index)
+    public void AddNorte(GameObject inter)
     {
-        Norte.RemoveAt(index);
+        Norte.Add(inter);
     }
     
-    public void RemoveSur(int index)
+    public void AddSur(GameObject inter)
     {
-        Sur.RemoveAt(index);
+        Sur.Add(inter);
+    }
+
+    public void RemoveNorte(GameObject obj)
+    {
+        if (Norte.Contains(obj))
+            Norte.RemoveAt(Norte.IndexOf(obj));
+    }
+    
+    public void RemoveSur(GameObject obj)
+    {
+        if (Sur.Contains(obj))
+            Sur.RemoveAt(Sur.IndexOf(obj));
     }
 
     private void Atraer()
@@ -54,16 +57,13 @@ public class Controlador : MonoBehaviour
             foreach (var S in Sur)
             {
                 N.GetComponent<Interactable>().CalculaFuerzaAtraccion(S.GetComponent<Rigidbody>(), fm);
+                S.GetComponent<Interactable>().CalculaFuerzaAtraccion(N.GetComponent<Rigidbody>(), fm);
             }
         }
     }
 
     private void Repeler()
     {
-        if (Norte.Count <= 1)
-        {
-            return;
-        }
         if (Norte.Count > 1)
         {
             foreach (var N in Norte)
@@ -71,14 +71,12 @@ public class Controlador : MonoBehaviour
                 foreach (var N2 in Norte)
                 {
                     if (N != N2)
+                    {
                         N.GetComponent<Interactable>().CalculaFuerzaRepulsion(N2.GetComponent<Rigidbody>(), fm);
+                        N2.GetComponent<Interactable>().CalculaFuerzaRepulsion(N.GetComponent<Rigidbody>(), fm);
+                    }
                 }
             }
-        }
-        
-        if (Sur.Count <= 1)
-        {
-            return;
         }
 
         if (Sur.Count > 1)
@@ -88,9 +86,19 @@ public class Controlador : MonoBehaviour
                 foreach (var S2 in Sur)
                 {
                     if (S != S2)
+                    {
                         S.GetComponent<Interactable>().CalculaFuerzaRepulsion(S2.GetComponent<Rigidbody>(), fm);
+                        S2.GetComponent<Interactable>().CalculaFuerzaRepulsion(S.GetComponent<Rigidbody>(), fm);
+                    }
+                        
                 }
             }
         }
+    }
+
+    private void PrintInfo()
+    {
+        print("Norte: " + Norte.Count);
+        print("Sur: " + Sur.Count);
     }
 }

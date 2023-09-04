@@ -8,10 +8,8 @@ public class Interactable : MonoBehaviour
 {
     [Header("Deteccion")]
     [SerializeField] private Controlador _controlador;
-    private int index;
-    [SerializeField] private GameObject[] interactables;
-    private List<Rigidbody> Norte;
-    private List<Rigidbody> Sur;
+    [SerializeField] private float minDist;
+    [SerializeField] private float maxDist;
     
     private Rigidbody _rb;
     private MeshRenderer _meshRenderer;
@@ -28,7 +26,6 @@ public class Interactable : MonoBehaviour
         polaridad = "";
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material = _materials[0];
-        index = 0;
         Fuerza_Magnetica = Vector3.zero;
     }
 
@@ -45,23 +42,23 @@ public class Interactable : MonoBehaviour
         {
             case "":
                 _meshRenderer.material = _materials[0];
-                index = 0;
+                _controlador.RemoveSur(gameObject);
+                _controlador.RemoveNorte(gameObject);
                 break;
             case "Norte":
                 _meshRenderer.material = _materials[1];
-                if (index != 0)
-                    _controlador.RemoveSur(index);
-                index = _controlador.AddNorte(gameObject);
+                _controlador.RemoveSur(gameObject);
+                _controlador.AddNorte(gameObject);
                 break;
             case "Sur":
                 _meshRenderer.material = _materials[2];
-                if (index != 0)
-                    _controlador.RemoveNorte(index);
-                index = _controlador.AddSur(gameObject);
+                _controlador.RemoveNorte(gameObject);
+                _controlador.AddSur(gameObject);
                 break;
             default:
                 _meshRenderer.material = _materials[0];
-                index = 0;
+                _controlador.RemoveSur(gameObject);
+                _controlador.RemoveNorte(gameObject);
                 break;
         }
     }
@@ -69,7 +66,15 @@ public class Interactable : MonoBehaviour
     private void ApplyForces()
     {
         if (polaridad != "")
+        {
             _rb.AddForce(Fuerza_Magnetica, ForceMode.Force);
+            Fuerza_Magnetica = Vector3.zero;
+        }
+        else
+        {
+            Fuerza_Magnetica = Vector3.zero;
+        }
+            
         
     }
     
@@ -83,16 +88,14 @@ public class Interactable : MonoBehaviour
     {
         Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
             rb.position.z - _rb.position.z).normalized;
-        Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), 1, 10));
-        Debug.Log(Fuerza_Magnetica);
+        Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
     }
     
     public void CalculaFuerzaRepulsion(Rigidbody rb, float fm)
     {
         Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
             rb.position.z - _rb.position.z).normalized;
-        Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), 1, 10));
-        Debug.Log(Fuerza_Magnetica);
+        Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
     }
     
 }
