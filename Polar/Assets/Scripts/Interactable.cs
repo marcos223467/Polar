@@ -1,83 +1,98 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [Header("Deteccion")] 
-    [SerializeField] private float RadioDetector;
-    [SerializeField] private LayerMask interactable;
+    [Header("Deteccion")]
+    [SerializeField] private Controlador _controlador;
+    private int index;
+    [SerializeField] private GameObject[] interactables;
+    private List<Rigidbody> Norte;
+    private List<Rigidbody> Sur;
     
     private Rigidbody _rb;
+    private MeshRenderer _meshRenderer;
 
-    [SerializeField] private float f_atraccion, f_repelente;
-
+    [SerializeField] private Material[] _materials;
+    
     private string polaridad;
+
+    private Vector3 Fuerza_Magnetica;
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         polaridad = "";
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderer.material = _materials[0];
+        index = 0;
+        Fuerza_Magnetica = Vector3.zero;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Accion();
+        ApplyForces();
     }
 
     public void setPolaridad(string pol)
     {
         polaridad = polaridad == pol ? polaridad = "" : polaridad = pol;
-    }
-
-    private void Accion()
-    {
-        if (polaridad == "")
-        {
-            return;
-        }
         
-        RaycastHit hit;
-
-        if (Physics.SphereCast(transform.position, RadioDetector, transform.forward, out hit, 0, interactable))
+        switch (polaridad)
         {
-            if (hit.collider.gameObject.GetComponent<Interactable>().getPolaridad() == "")
-            {
-                return;
-            }
-
-            if (polaridad == hit.collider.gameObject.GetComponent<Interactable>().getPolaridad())
-            {
-                Repeler(hit.collider.gameObject.GetComponent<Rigidbody>());
-            }
-            else
-            {
-                Atraer(hit.collider.gameObject.GetComponent<Rigidbody>());
-            }
+            case "":
+                _meshRenderer.material = _materials[0];
+                index = 0;
+                break;
+            case "Norte":
+                _meshRenderer.material = _materials[1];
+                if (index != 0)
+                    _controlador.RemoveSur(index);
+                index = _controlador.AddNorte(gameObject);
+                break;
+            case "Sur":
+                _meshRenderer.material = _materials[2];
+                if (index != 0)
+                    _controlador.RemoveNorte(index);
+                index = _controlador.AddSur(gameObject);
+                break;
+            default:
+                _meshRenderer.material = _materials[0];
+                index = 0;
+                break;
         }
-
-        
     }
 
-    private void Atraer(Rigidbody objeto2)
+    private void ApplyForces()
     {
-        Vector3 direccion = new Vector3(objeto2.position.x - _rb.position.x, objeto2.position.y - _rb.position.y,
-            objeto2.position.z - _rb.position.z).normalized;
-        if (_rb.mass == objeto2.mass)
-        {
-            _rb.AddForce(direccion * f_atraccion, ForceMode.Force);
-        }
-        //Hacer los otros casos
-    }
-
-    private void Repeler(Rigidbody objeto2)
-    {
+        if (polaridad != "")
+            _rb.AddForce(Fuerza_Magnetica, ForceMode.Force);
         
     }
+    
 
     private string getPolaridad()
     {
         return polaridad;
     }
+
+    public void CalculaFuerzaAtraccion(Rigidbody rb, float fm)
+    {
+        Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
+            rb.position.z - _rb.position.z).normalized;
+        Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), 1, 10));
+        Debug.Log(Fuerza_Magnetica);
+    }
+    
+    public void CalculaFuerzaRepulsion(Rigidbody rb, float fm)
+    {
+        Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
+            rb.position.z - _rb.position.z).normalized;
+        Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), 1, 10));
+        Debug.Log(Fuerza_Magnetica);
+    }
+    
 }

@@ -17,9 +17,11 @@ public class Player : MonoBehaviour
     private Transform cam;
     
     private Rigidbody _rb;
-
+    
+    [Header("Shooter")]
     [SerializeField] private Bala BalaN;
     [SerializeField] private Bala BalaS;
+    [SerializeField] private float anguloTiro;
     
     // Start is called before the first frame update
     void Start()
@@ -76,12 +78,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && !BalaN.getShot()) //Disparamos N
         {
-            BalaN.Disparar();
+            BalaN.Disparar(anguloTiro);
         }
 
         if (Input.GetButtonDown("Fire2") && !BalaS.getShot())
         {
-            BalaS.Disparar();
+            BalaS.Disparar(-anguloTiro);
         }
     }
 

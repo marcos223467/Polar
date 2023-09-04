@@ -29,17 +29,19 @@ public class Bala : MonoBehaviour
         if (other.gameObject.layer == 6) //Layer de los objetos interactables
         {
             other.gameObject.GetComponent<Interactable>().setPolaridad(_tipo);
-            shot = false;
-            _meshRenderer.enabled = false;
+            Restart();
         }
     }
 
-    public void Disparar()
+    public void Disparar(float anguloTiro)
     {
         shot = true;
         transform.position = canon.position;
         _meshRenderer.enabled = true;
+        canon.Rotate(Vector3.up, anguloTiro);
         _rb.AddForce(canon.forward * f_disparo, ForceMode.Impulse);
+        
+        canon.Rotate(Vector3.up, -anguloTiro);
         
         Invoke("Restart", 2f);
     }
