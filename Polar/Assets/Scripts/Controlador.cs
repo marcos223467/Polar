@@ -8,8 +8,6 @@ public class Controlador : MonoBehaviour
 {
     private List<GameObject> Norte;
     private List<GameObject> Sur;
-
-    [SerializeField] private float fm;
     void Start()
     {
         Norte = new List<GameObject>();
@@ -56,8 +54,8 @@ public class Controlador : MonoBehaviour
         {
             foreach (var S in Sur)
             {
-                N.GetComponent<Interactable>().CalculaFuerzaAtraccion(S.GetComponent<Rigidbody>(), fm);
-                S.GetComponent<Interactable>().CalculaFuerzaAtraccion(N.GetComponent<Rigidbody>(), fm);
+                N.GetComponent<Interactable>().CalculaFuerzaAtraccion(S.GetComponent<Rigidbody>());
+                S.GetComponent<Interactable>().CalculaFuerzaAtraccion(N.GetComponent<Rigidbody>());
             }
         }
     }
@@ -72,8 +70,8 @@ public class Controlador : MonoBehaviour
                 {
                     if (N != N2)
                     {
-                        N.GetComponent<Interactable>().CalculaFuerzaRepulsion(N2.GetComponent<Rigidbody>(), fm);
-                        N2.GetComponent<Interactable>().CalculaFuerzaRepulsion(N.GetComponent<Rigidbody>(), fm);
+                        N.GetComponent<Interactable>().CalculaFuerzaRepulsion(N2.GetComponent<Rigidbody>());
+                        N2.GetComponent<Interactable>().CalculaFuerzaRepulsion(N.GetComponent<Rigidbody>());
                     }
                 }
             }
@@ -87,8 +85,8 @@ public class Controlador : MonoBehaviour
                 {
                     if (S != S2)
                     {
-                        S.GetComponent<Interactable>().CalculaFuerzaRepulsion(S2.GetComponent<Rigidbody>(), fm);
-                        S2.GetComponent<Interactable>().CalculaFuerzaRepulsion(S.GetComponent<Rigidbody>(), fm);
+                        S.GetComponent<Interactable>().CalculaFuerzaRepulsion(S2.GetComponent<Rigidbody>());
+                        S2.GetComponent<Interactable>().CalculaFuerzaRepulsion(S.GetComponent<Rigidbody>());
                     }
                         
                 }

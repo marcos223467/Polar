@@ -15,6 +15,8 @@ public class Bala : MonoBehaviour
     private bool shot;
 
     [SerializeField] private Transform canon;
+
+    private Vector3 origPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Bala : MonoBehaviour
         shot = false;
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.enabled = false;
+        origPos = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +56,7 @@ public class Bala : MonoBehaviour
 
     private void Restart()
     {
+        transform.position = origPos;
         _rb.velocity = Vector3.zero;
         _meshRenderer.enabled = false;
         shot = false;

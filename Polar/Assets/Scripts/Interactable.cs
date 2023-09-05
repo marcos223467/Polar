@@ -19,6 +19,9 @@ public class Interactable : MonoBehaviour
     private string polaridad;
 
     private Vector3 Fuerza_Magnetica;
+    [SerializeField] private float fm;
+
+    public bool estatico;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,8 @@ public class Interactable : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyForces();
+        if (!estatico)
+            ApplyForces();
     }
 
     public void setPolaridad(string pol)
@@ -84,18 +88,25 @@ public class Interactable : MonoBehaviour
         return polaridad;
     }
 
-    public void CalculaFuerzaAtraccion(Rigidbody rb, float fm)
+    public void CalculaFuerzaAtraccion(Rigidbody rb)
     {
         Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
             rb.position.z - _rb.position.z).normalized;
         Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
     }
     
-    public void CalculaFuerzaRepulsion(Rigidbody rb, float fm)
+    public void CalculaFuerzaRepulsion(Rigidbody rb)
     {
         Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
             rb.position.z - _rb.position.z).normalized;
         Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7) // Layer del despolarizador
+        {
+            setPolaridad("");
+        }
+    }
 }
