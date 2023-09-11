@@ -8,11 +8,13 @@ public class Interactable : MonoBehaviour
 {
     [Header("Deteccion")]
     [SerializeField] private Controlador _controlador;
-    [SerializeField] private float minDist;
+    private float minDist, distCuant;
     [SerializeField] private float maxDist;
     
     private Rigidbody _rb;
     private MeshRenderer _meshRenderer;
+    [SerializeField] private SkinnedMeshRenderer _skinnedMesh;
+    public bool skinned;
 
     [SerializeField] private Material[] _materials;
     
@@ -27,9 +29,18 @@ public class Interactable : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         polaridad = "";
-        _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = _materials[0];
+        if (!skinned)
+        {
+            _meshRenderer = GetComponent<MeshRenderer>();
+            _meshRenderer.material = _materials[0];
+        }
+        else
+        {
+            _skinnedMesh.material = _materials[0];
+        }
         Fuerza_Magnetica = Vector3.zero;
+        minDist = 0.1f;
+        distCuant = 1000;
     }
 
     void FixedUpdate()
@@ -45,22 +56,38 @@ public class Interactable : MonoBehaviour
         switch (polaridad)
         {
             case "":
-                _meshRenderer.material = _materials[0];
+                if (skinned)
+                    _skinnedMesh.material = _materials[0];
+                else
+                    _meshRenderer.material = _materials[0];
+                
                 _controlador.RemoveSur(gameObject);
                 _controlador.RemoveNorte(gameObject);
                 break;
             case "Norte":
-                _meshRenderer.material = _materials[1];
+                if (skinned)
+                    _skinnedMesh.material = _materials[1];
+                else
+                    _meshRenderer.material = _materials[1];
+                
                 _controlador.RemoveSur(gameObject);
                 _controlador.AddNorte(gameObject);
                 break;
             case "Sur":
-                _meshRenderer.material = _materials[2];
+                if (skinned)
+                    _skinnedMesh.material = _materials[2];
+                else
+                    _meshRenderer.material = _materials[2];
+                
                 _controlador.RemoveNorte(gameObject);
                 _controlador.AddSur(gameObject);
                 break;
             default:
-                _meshRenderer.material = _materials[0];
+                if (skinned)
+                    _skinnedMesh.material = _materials[0];
+                else
+                    _meshRenderer.material = _materials[0];
+                
                 _controlador.RemoveSur(gameObject);
                 _controlador.RemoveNorte(gameObject);
                 break;
@@ -90,16 +117,23 @@ public class Interactable : MonoBehaviour
 
     public void CalculaFuerzaAtraccion(Rigidbody rb)
     {
-        Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
-            rb.position.z - _rb.position.z).normalized;
-        Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
+        if (Vector3.Distance(_rb.position, rb.position) <= maxDist)
+        {
+            Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
+                rb.position.z - _rb.position.z).normalized;
+            Fuerza_Magnetica += direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, distCuant));
+        }
     }
     
     public void CalculaFuerzaRepulsion(Rigidbody rb)
     {
-        Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
-            rb.position.z - _rb.position.z).normalized;
-        Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, maxDist));
+        if (Vector3.Distance(_rb.position, rb.position) <= maxDist)
+        {
+            Vector3 direccion = new Vector3(rb.position.x - _rb.position.x, rb.position.y - _rb.position.y,
+                rb.position.z - _rb.position.z).normalized;
+            Fuerza_Magnetica += -direccion * (fm / Mathf.Clamp(Vector3.Distance(_rb.position, rb.position), minDist, distCuant));
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
