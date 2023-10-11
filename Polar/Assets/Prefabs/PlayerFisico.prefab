@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170344433155055308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &170344433155055308
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 170344433401715713}
   - component: {fileID: 170344433401715715}
   - component: {fileID: 170344433401715714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlareGunShort_Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 170344433455252187}
   - component: {fileID: 170344433455252189}
   - component: {fileID: 170344433455252188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlareGunShort_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 170344433908038309}
   - component: {fileID: 170344433908038308}
   - component: {fileID: 170344433908038311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170344434133814742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170344434421536277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,13 +410,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170344434784821040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &170344434784821040
 Transform:
   m_ObjectHideFlags: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 170344434948614234}
   - component: {fileID: 170344434948614233}
   - component: {fileID: 170344434948614232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerFisico
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 170344435038429635}
   - component: {fileID: 170344435038429637}
   - component: {fileID: 170344435038429636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlareGunShort_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 170344435167200674}
   - component: {fileID: 170344435167200676}
   - component: {fileID: 170344435167200675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3817078370112380026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pistola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 4952126533518159223}
   - component: {fileID: 6408094427255638772}
   - component: {fileID: 7268468399242665707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 4097752298723828583}
   - component: {fileID: 620341562767014976}
   - component: {fileID: 5103761585863971020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Ca\xF1on"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
