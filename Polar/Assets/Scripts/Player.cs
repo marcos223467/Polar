@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -25,9 +27,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Bala BalaN;
     [SerializeField] private Bala BalaS;
     [SerializeField] private float anguloTiro;
-
-    private Animator _animator;
+    [SerializeField] private GameObject L, R, PistolasAttach;
     
+    public bool pistolas;
+    public GameObject Mensaje;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +40,7 @@ public class Player : MonoBehaviour
         isGrounded = true;
         sprint = false;
         crouch = false;
-        _animator = GetComponent<Animator>();
-        
-        _animator.SetBool("Pistola", false);
+        pistolas = false;
     }
 
     // Update is called once per frame
@@ -46,8 +48,8 @@ public class Player : MonoBehaviour
     {
         Mirar();
         Disparar();
-        _animator.SetFloat("Vel", _rb.velocity.magnitude);
-        _animator.SetBool("Crouch", crouch);
+        if (pistolas)
+            ActivaPistolas();
     }
 
     private void FixedUpdate()
@@ -115,8 +117,7 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
     }
-
-    // ReSharper disable Unity.PerformanceAnalysis
+    
     private void Disparar()
     {
         if (Input.GetButtonDown("Fire1") && !BalaN.getShot()) //Disparamos N
@@ -141,5 +142,16 @@ public class Player : MonoBehaviour
     private void Print()
     {
         Debug.Log(_rb.velocity.y);
+    }
+
+    public void ActivaPistolas()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            L.SetActive(true);
+            R.SetActive(true);
+            PistolasAttach.SetActive(false);
+        }
+        
     }
 }
