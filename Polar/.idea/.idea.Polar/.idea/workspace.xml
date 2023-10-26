@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="173496ba-1214-47f5-8aa1-08d921a8686e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animaciones/Personaje/Personaje.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animaciones/Personaje/Personaje.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animaciones/Personaje/Standing W_Briefcase Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animaciones/Personaje/Standing W_Briefcase Idle.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inicio.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inicio.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +45,8 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
       "C:\\Users\\marco\\AppData\\Local\\Symbols\\src"
     ]
   }
@@ -115,6 +118,7 @@
       <workItem from="1694596299518" duration="1572000" />
       <workItem from="1697023748863" duration="4000" />
       <workItem from="1697057385543" duration="782000" />
+      <workItem from="1698317404493" duration="2306000" />
     </task>
     <servers />
   </component>
