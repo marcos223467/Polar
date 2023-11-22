@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Bala BalaS;
     [SerializeField] private float anguloTiro;
     [SerializeField] private GameObject L, R, PistolasAttach;
-    
     public bool pistolas;
+    
     public GameObject Mensaje;
 
     // Start is called before the first frame update
@@ -47,9 +47,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Mirar();
-        Disparar();
         if (pistolas)
-            ActivaPistolas();
+        {
+            Disparar();
+        }
     }
 
     private void FixedUpdate()
