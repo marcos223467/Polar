@@ -6,21 +6,25 @@ using UnityEngine;
 public class Triggers : MonoBehaviour
 {
     public bool CogePistolas;
-    
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (CogePistolas && other.gameObject.layer == 8)
+        if (CogePistolas && other.gameObject.layer == 8 && other.gameObject.GetComponent<Player>().pistolas == false)
         {
-            other.gameObject.GetComponent<Player>().pistolas = true;
+            other.gameObject.GetComponent<Player>().ActivaPistolas();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (CogePistolas && other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8 && other.gameObject.GetComponent<Player>().pistolas)
         {
-            other.gameObject.GetComponent<Player>().pistolas = false;
+            Desactivar();
         }
+    }
+
+    private void Desactivar()
+    {
+        this.gameObject.SetActive(false);
     }
 }

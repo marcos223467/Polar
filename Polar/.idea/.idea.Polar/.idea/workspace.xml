@@ -8,11 +8,16 @@
       <change beforePath="$PROJECT_DIR$/../Pistola2.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../Pistola2.blend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Pistola2.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../Pistola2.blend1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Pared/Pared2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pared/Pared2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Suelo/Suelo.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Suelo/Suelo.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Metal/Metal N.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Metal/Metal N.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Metal/Metal S.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Metal/Metal S.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Metal/Metal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Metal/Metal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Metal/MetalPlates006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Metal/MetalPlates006.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inicio2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inicio2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/WhiteBox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WhiteBox.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Triggers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Triggers.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,26 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\marco\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\marco\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Unity.exe" />
@@ -123,6 +128,7 @@
       <workItem from="1698317404493" duration="2306000" />
       <workItem from="1698338356258" duration="3709000" />
       <workItem from="1700655651779" duration="1286000" />
+      <workItem from="1700735999126" duration="3223000" />
     </task>
     <servers />
   </component>

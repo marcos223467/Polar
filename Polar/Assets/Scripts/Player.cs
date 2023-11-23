@@ -27,11 +27,10 @@ public class Player : MonoBehaviour
     [SerializeField] private Bala BalaN;
     [SerializeField] private Bala BalaS;
     [SerializeField] private float anguloTiro;
-    [SerializeField] private GameObject L, R, PistolasAttach;
+    [SerializeField] private GameObject L, R;
     public bool pistolas;
-    
-    public GameObject Mensaje;
 
+    public GameObject p1, p2;
     // Start is called before the first frame update
     void Start()
     {
@@ -134,7 +133,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isGrounded && collision.gameObject.layer == 3) //3 es el layer del suelo
+        if (!isGrounded && collision.gameObject.layer == 3 || collision.gameObject.layer == 6) //3 es el layer del suelo y 6 de interactables
         {
             isGrounded = true;
         }
@@ -151,7 +150,9 @@ public class Player : MonoBehaviour
         {
             L.SetActive(true);
             R.SetActive(true);
-            PistolasAttach.SetActive(false);
+            pistolas = true;
+            p1.SetActive(false);
+            p2.SetActive(false);
         }
         
     }
