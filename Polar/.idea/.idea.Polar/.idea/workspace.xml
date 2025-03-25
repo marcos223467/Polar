@@ -7,7 +7,11 @@
     <list default="true" id="173496ba-1214-47f5-8aa1-08d921a8686e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../PistolaBuena.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../PistolaBuena.blend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PistolaBuena.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../PistolaBuena.blend1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Polar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerFisico.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inicio2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Inicio2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WhiteBox.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WhiteBox.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +46,8 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\marco\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
       "C:\\Users\\marco\\AppData\\Local\\Symbols\\src"
     ]
   }
@@ -120,6 +124,7 @@
       <workItem from="1700655651779" duration="1286000" />
       <workItem from="1700735999126" duration="3223000" />
       <workItem from="1707991568634" duration="205000" />
+      <workItem from="1742925913483" duration="2765000" />
     </task>
     <servers />
   </component>

@@ -27,10 +27,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Bala BalaN;
     [SerializeField] private Bala BalaS;
     [SerializeField] private float anguloTiro;
-    [SerializeField] private GameObject L, R;
     public bool pistolas;
 
-    public GameObject p1, p2;
+    public GameObject pistolaN, pistolaS;
     // Start is called before the first frame update
     void Start()
     {
@@ -148,11 +147,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            L.SetActive(true);
-            R.SetActive(true);
+            pistolaN.SetActive(true);
+            pistolaS.SetActive(true);
             pistolas = true;
-            p1.SetActive(false);
-            p2.SetActive(false);
         }
         
     }
