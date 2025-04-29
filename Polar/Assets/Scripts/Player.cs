@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float anguloTiro;
     public bool pistolas;
 
-    public GameObject pistolaN, pistolaS;
+    public GameObject pistolaN, pistolaS, FPN, FPS;
     // Start is called before the first frame update
     void Start()
     {
@@ -150,6 +150,8 @@ public class Player : MonoBehaviour
             pistolaN.SetActive(true);
             pistolaS.SetActive(true);
             pistolas = true;
+            FPN.SetActive(false);
+            FPS.SetActive(false);
         }
         
     }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class Triggers : MonoBehaviour
 {
     public bool CogePistolas;
-
     private void OnTriggerStay(Collider other)
     {
         if (CogePistolas && other.gameObject.layer == 8 && other.gameObject.GetComponent<Player>().pistolas == false)
